@@ -5,25 +5,49 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-    title: 'Article One | Sabareesh Krishnan',
-    heading: 'Article One',
-    date: 'Oct 8, 2016',
-    content: ` <p>
-                    This is the content for my first article.
-                </p>
-                <p>
-                    This is the content for my first article.
-                </p>
-                <p>
-                    This is the content for my first article.
-                </p>
-                <p>
-                    This is the content for my first article.
-                </p>
-                <p>
-                    This is the content for my first article.
-                </p>`
+var articles = {
+    'article-one': {
+        title: 'Article One | Sabareesh Krishnan',
+        heading: 'Article One',
+        date: 'Oct 8, 2016',
+        content: ` <p>
+                        This is the content for my first article.
+                    </p>
+                    <p>
+                        This is the content for my first article.
+                    </p>
+                    <p>
+                        This is the content for my first article.
+                    </p>
+                    <p>
+                        This is the content for my first article.
+                    </p>
+                    <p>
+                        This is the content for my first article.
+                    </p>`
+    },
+    'article-two': {
+        title: 'Article Two | Sabareesh Krishnan',
+        heading: 'Article Two',
+        date: 'Oct 8, 2016',
+        content: ` <p>
+                        This is the content for my second article.
+                    </p>
+                    <p>
+                        This is the content for my second article.
+                    </p>
+                    <p>
+                        This is the content for my second article.
+                    </p>`
+    },
+    'article-three': {
+        title: 'Article Three | Sabareesh Krishnan',
+        heading: 'Article Three',
+        date: 'Oct 8, 2016',
+        content: ` <p>
+                        This is the content for my third article.
+                    </p> `
+    }
 };
 
 function createTemplate(data) {
@@ -66,14 +90,12 @@ app.get('/', function (req, res) {
 });
 
 
-app.get('/article-one', function(req, res) {
-    res.send(createTemplate(articleOne));
-});
-app.get('/article-two', function(req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-three', function(req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/:articleName', function(req, res) {
+    //articleName == whatever after '/' is stored to articleName variable
+    //let us consider stored value refer to one of our article, then
+    var articleName = req.params.articleName; //this is how we extract articleName portion in the url 
+    res.send(createTemplate(articles[articleName]));
+    //articles[articleName] == {} content object of an article
 });
 
 
