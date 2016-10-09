@@ -2,16 +2,23 @@ console.log('Loaded!');
 
 //counter code
 var button = document.getElementById('counter');
-var counter = 0;
+
 button.onclick = function() {
-  //make counter endpoint req
-  
+  //create a request object
+  var request = new XMLHttpRequest();
   //capture the response and store it in a variable
+  request.onreadystatechange = function() {
+      if (request.readyState == XMLHttpRequest.DONE) {
+          if(request.status == 200 ) {
+              //take action: print counter value 
+              var counter = request.responseText;
+              var span = document.getElementById('count');
+              span.innerHTML = counter.toString();
+          }
+      }
+  }
+  //make request
   
-  //render variable in the correct span
-  counter = counter + 1;
-  var span = document.getElementById('count');
-  span.innerHTML = counter.toString();
 };
 
 var element = document.getElementById("main-text");
