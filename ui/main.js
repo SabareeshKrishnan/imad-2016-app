@@ -22,12 +22,8 @@ button.onclick = function() {
   request.send(null);
 };
 
-var element = document.getElementById("main-text");
-element.innerHTML = "New Value";
-
 //move the image
 var img = document.getElementById("madi");
-
 var marginleft = 0;
 function moveRight () {
     marginleft = marginleft + 5;
