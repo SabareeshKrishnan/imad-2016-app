@@ -18,7 +18,8 @@ button.onclick = function() {
       }
   }
   //make request
-  
+  request.open('GET', 'http://sabareeshkrishnan.imad.hasura-app.io/counter', true);
+  request.send(null);
 };
 
 var element = document.getElementById("main-text");
