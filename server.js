@@ -84,6 +84,8 @@ function createTemplate(data) {
                 <div>
                 <input type='text id='comment'></name>
                 <input type='submit' value='submit' id='submit_btn'></input>
+                <script type='text/javascript' src='/comments.js'>
+                </script>
                 </div>
                 <div class='footer'>
                 </div>
@@ -95,6 +97,10 @@ function createTemplate(data) {
 }
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/comments.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'comments.js'));
 });
 
 var counter = 0;
