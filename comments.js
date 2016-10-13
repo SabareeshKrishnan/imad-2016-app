@@ -7,8 +7,7 @@ submit.onclick = (function() {
     //create request
     var request = new XMLHttpRequest();
 
-    var commentInput = document.getElementById('comment');
-    comment = commentInput.value;    
+   
     
     //capture the request and store it in a variable
     request.onreadystatechange = function () {
@@ -31,6 +30,8 @@ submit.onclick = (function() {
     
     
     //make request
+    var commentInput = document.getElementById('comment');
+    comment = commentInput.value; 
     request.open('GET', 'http://sabareeshkrishnan.imad.hasura-app.io/submit-comment?comment=', comment, true);
     request.send(null);
 });
