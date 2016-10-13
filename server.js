@@ -80,10 +80,7 @@ function createTemplate(data) {
                     ${content}
                 </div>
                 <hr/>
-                <div>
-                <script type="text/javascript" src="/comments.js">
-                </script>
-                </div>
+                
                 <div>
                 <input type='text id='comment'></name>
                 <input type='submit' value='submit' id='submit_btn'></input>
