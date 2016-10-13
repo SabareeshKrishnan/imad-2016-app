@@ -3,6 +3,6 @@ console.log('Loaded');
 var submit = document.getElementById('submit_btn');
 
 submit.onclick = (function() {
-    var name = document.getElementById('comment')
+    var commentInput = document.getElementById('comment')
     commentInput.value = 'Value'
 });
