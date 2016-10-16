@@ -15,7 +15,7 @@ submit.onclick = function() {
                 comments = JSON.parse(comments);
                 var list = '';
                 for (var i=0; i<comments.length; i++) {
-                    list == names[i] + '<br>';
+                    list == comments[i] + '<br>';
                 }
                 var commentarea =  document.getElementById('footer');
                 commentarea.innerHTML = list;
